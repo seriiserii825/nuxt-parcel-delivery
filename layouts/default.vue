@@ -1,21 +1,34 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
-
+import { switchTheme } from "~/utils/theme";
 useHead({
   link: [{ rel: "stylesheet", href: "/css/fontawesome.min.css" }],
 });
+
+
+function changeTheme() {
+  switchTheme();
+}
+
+setThemeOnLoad();
 </script>
 
 <template>
   <div>
-    <div class="text-red-500 text-3xl font-bold">Hello Tailwind!</div>
     <header class="bg-primary text-color dark:bg-dark-primary dark:text-dark-color">
       <nav class="p-6 mx-auto max-w-screen-lg flex items-center justify-between gap-2">
         <Logo />
-        <div class="flex items-center space-x-6 gap-2"></div>
+        <div class="flex items-center space-x-6 gap-2">
+          <button
+            @click="changeTheme"
+            class="w-6 h-6 grid place-items-center rounded-full hover:outline outline-1 outline-white"
+          >
+            <i class="fa-solid fa-circle-half-stroke"></i>
+          </button>
+        </div>
       </nav>
     </header>
-    <main class="p-6 mx-auto max-w-screen-lg">
+    <main class="text-color bg-primary-light dark:bg-dark-primary-dark dark:text-dark-color min-h-[100vh]">
       <slot />
     </main>
   </div>
