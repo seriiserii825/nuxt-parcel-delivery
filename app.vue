@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 onMounted(async () => {
-  // await useGetUserApi();
+  await useGetUserApi();
 });
 </script>
 <template>

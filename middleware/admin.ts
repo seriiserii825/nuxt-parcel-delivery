@@ -3,9 +3,9 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   // If the user is not logged in, redirect to the home page
   if (!admin_user.value) {
-    if (to.path !== "/login") {
-      return navigateTo("/");
-    }
+      return navigateTo("/login");
+    // if (to.path !== "/login") {
+    // }
   }
 
   // If the user is logged in and is an admin, redirect to the admin page
