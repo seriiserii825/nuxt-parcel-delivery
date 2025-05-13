@@ -1,5 +1,4 @@
 <script setup lang="ts"></script>
-
 <template>
-  <FormLoginForm />
+    <h1 class="text-3xl font-bold mb-2"><slot /></h1>
 </template>
