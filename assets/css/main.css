@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+    --primary: #fff; /* text-slate-50 */
+    --primary-300: #f1f5f9; /* text-slate-100 */
+    --primary-700: #e2e8f0; /* bg-slate-200 */
+    --primary-hover:   #cad5e2; /* text-slate-300 */
+    --color: #1e293b; /* bg-slate-800 */
+
+    --dark-primary: #1e293b; /* bg-slate-800 */
+    --dark-primary-200:  #45556c; /* bg-slate-600 */
+    --dark-primary-300: #334155; /* bg-slate-700 */
+    --dark-primary-700: #0f172b; /* bg-slate-900 */
+    --dark-primary-hover:   #1d293d; /* bg-slate-700 */
+    --dark-color: #f1f5f9; /* text-slate-100 */
+}
