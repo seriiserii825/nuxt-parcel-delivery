@@ -23,7 +23,5 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "default" },
   },
-  modules: [
-    '@nuxtjs/tailwindcss'
-  ]
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
 });
