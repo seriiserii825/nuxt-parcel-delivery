@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {useUserStore} from '~/store/useUserStore';
+
+const user_store = useUserStore();
 const form = ref({
   email: "",
   password: "",
@@ -10,17 +13,22 @@ const errors = ref({
   password: "",
 });
 
-function submit() {
-    // form.post(route("login"), {
-    //     onSuccess: () => {
-    //         form.reset();
-    //     },
-    //     onError: (errors) => {
-    //         for (const key in errors) {
-    //             form.setError(key, errors[key]);
-    //         }
-    //     },
-    // });
+const router = useRouter();
+
+async function submit() {
+  try {
+    const response = await axiosInstance.post("/login", form.value);
+    console.log("response", response);
+
+    localStorage.setItem("token", response.data.token);
+    const cookie_user = useCookie("user");
+    cookie_user.value = JSON.stringify(response.data.user);
+    user_store.setUser(response.data.user);
+    router.push('/admin');
+
+  } catch (error) {
+    useHandleAxiosErrors(error);
+  }
 }
 </script>
 <template>
@@ -52,7 +60,7 @@ function submit() {
                 </FormCheckbox>
                 <FormTextLink routeName="/" label="Forgot password?" />
             </div>
-            <FormBtn color="success">Login</FormBtn>
+            <FormBtn @click="submit" color="success">Login</FormBtn>
         </form>
     </UiContainer>
 </template>
