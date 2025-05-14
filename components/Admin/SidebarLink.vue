@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 type TSubmenu = {
   text: string;
   href: string;
@@ -26,15 +26,14 @@ const props = defineProps({
     required: false,
   },
 });
-const is_active_route = ref(false);
+const is_active_route = computed(() => {
+  return props.active && route.path.includes(props.active);
+});
 const is_visible_submenu = ref(false);
 const toggleSubmenu = () => {
   is_visible_submenu.value = !is_visible_submenu.value;
 };
 const route = useRoute();
-onMounted(() => {
-  console.log(route, "route");
-});
 </script>
 <template>
   <div>
@@ -63,11 +62,14 @@ onMounted(() => {
     </li>
     <ul
       v-if="sub_menu.length && is_visible_submenu"
-      class="px-6 py-3 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+      class="px-6 py-3 space-y-2 overflow-hidden text-sm font-medium rounded-md shadow-inner"
+      :class="{
+        'bg-gray-50 dark:bg-gray-900': is_active_route,
+      }"
       aria-label="submenu">
       <li
         v-for="item in sub_menu"
-        class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+        class="px-2 ml-3 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
         <NuxtLink class="w-full" :to="item.href">{{ item.text }}</NuxtLink>
       </li>
     </ul>

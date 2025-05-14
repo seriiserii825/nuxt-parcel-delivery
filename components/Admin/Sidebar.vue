@@ -42,10 +42,6 @@
                             text: 'Button',
                             href: '/admin/style-guides/button',
                         },
-                        {
-                            text: 'Checkbox',
-                            href: '/admin/style-guides/checkbox',
-                        },
                     ]"
                 />
             </ul>
