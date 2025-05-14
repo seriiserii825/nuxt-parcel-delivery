@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
-import { useUserStore } from "~/store/useUserStore";
-import { switchTheme } from "~/utils/theme";
 useHead({
   link: [
     {
@@ -10,11 +8,6 @@ useHead({
     },
   ],
 });
-const user_store = useUserStore();
-function changeTheme() {
-  switchTheme();
-}
-setThemeOnLoad();
 </script>
 <template>
   <div class="bg-gray-50 dark:bg-dark-primary dark:text-dark-color">
