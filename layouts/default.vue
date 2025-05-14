@@ -1,18 +1,12 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
 import {useUserStore} from "~/store/useUserStore";
-import { switchTheme } from "~/utils/theme";
 useHead({
   link: [{ rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" }],
 });
 
 const user_store = useUserStore();
 
-function changeTheme() {
-  switchTheme();
-}
-
-setThemeOnLoad();
 </script>
 
 <template>
@@ -26,12 +20,7 @@ setThemeOnLoad();
             <FormBtn url="/login">Login</FormBtn>
             <FormBtn url="/register">Register</FormBtn>
           </div>
-          <button
-            @click="changeTheme"
-            class="w-6 h-6 grid place-items-center rounded-full hover:outline outline-1 outline-white"
-          >
-            <i class="fa-solid fa-circle-half-stroke"></i>
-          </button>
+          <UiThemeToggler/>
         </div>
       </nav>
     </header>

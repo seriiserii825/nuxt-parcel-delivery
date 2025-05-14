@@ -1,14 +1,24 @@
 <script setup lang="ts">
-const active_theme = ref(getActiveTheme());
+import { useThemeStore } from "~/store/useThemeStore";
+
+const theme_store = useThemeStore();
+onMounted(() => {
+  theme_store.setThemeOnLoad();
+});
 </script>
 
 <template>
   <div class="flex">
     <button
-        class="rounded-md focus:outline-none focus:shadow-outline-purple"
-        @click="switchTheme"
+      class="rounded-md focus:outline-none focus:shadow-outline-purple"
+      @click="theme_store.toggleTheme"
       aria-label="Toggle color mode">
-      <svg v-if="active_theme == 'dark'" class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+      <svg
+        v-if="theme_store.theme == 'dark'"
+        class="w-5 h-5"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20">
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
       </svg>
       <svg v-else class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
