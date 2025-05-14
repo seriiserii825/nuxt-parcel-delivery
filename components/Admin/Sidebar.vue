@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
@@ -8,12 +9,12 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
             <ul class="pt-6">
                 <AdminSidebarLink
-                    route_name="home"
+                    href="/"
                     text="Home"
                     icon="fa-solid fa-house"
                 />
                 <AdminSidebarLink
-                    route_name="admin"
+                    href="/admin"
                     text="Dashboard"
                     icon="fas fa-tachometer-alt"
                 />
@@ -24,26 +25,11 @@
                     :sub_menu="[
                         {
                             text: 'All',
-                            route_name: 'admin.clients.index',
+                            href: 'admin.clients.index',
                         },
                         {
                             text: 'Create',
-                            route_name: 'admin.clients.create',
-                        },
-                    ]"
-                />
-                <AdminSidebarLink
-                    text="Managers"
-                    icon="fa-brands fa-guilded"
-                    active="/admin/managers"
-                    :sub_menu="[
-                        {
-                            text: 'All',
-                            route_name: 'admin.managers.index',
-                        },
-                        {
-                            text: 'Create',
-                            route_name: 'admin.managers.create',
+                            href: 'admin.clients.create',
                         },
                     ]"
                 />
@@ -54,11 +40,11 @@
                     :sub_menu="[
                         {
                             text: 'Button',
-                            route_name: 'admin.style-guide.button',
+                            href: '/admin/style-guides/button',
                         },
                         {
                             text: 'Checkbox',
-                            route_name: 'admin.style-guide.checkbox',
+                            href: '/admin/style-guides/checkbox',
                         },
                     ]"
                 />
