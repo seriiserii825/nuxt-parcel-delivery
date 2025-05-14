@@ -60,7 +60,7 @@ onMounted(() => {
     <a
         v-if="url"
         :href="url"
-        class="px-3 py-2 rounded-lg"
+        class="px-3 py-2 rounded-lg bg-primary-dark hover:bg-primary-light dark:bg-dark-primary-dark dark:hover:bg-dark-primary"
         :class="`${class_name} text-white`"
         @click="handleClick"
     >

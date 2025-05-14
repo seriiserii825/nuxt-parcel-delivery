@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
+import {useUserStore} from "~/store/useUserStore";
 import { switchTheme } from "~/utils/theme";
 useHead({
   link: [{ rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" }],
 });
 
+const user_store = useUserStore();
 
 function changeTheme() {
   switchTheme();
@@ -19,7 +21,11 @@ setThemeOnLoad();
       <nav class="p-6 mx-auto max-w-screen-lg flex items-center justify-between gap-2">
         <Logo />
         <div class="flex items-center space-x-6 gap-2">
-          <UiAuthDropdown/>
+          <UiAuthDropdown v-if="user_store.user"/>
+          <div v-else class="flex gap-2">
+            <FormBtn url="/login">Login</FormBtn>
+            <FormBtn url="/register">Register</FormBtn>
+          </div>
           <button
             @click="changeTheme"
             class="w-6 h-6 grid place-items-center rounded-full hover:outline outline-1 outline-white"
