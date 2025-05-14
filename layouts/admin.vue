@@ -14,7 +14,7 @@ useHead({
   <AdminHeader />
   <div class="flex">
     <AdminSidebar />
-    <main class="flex-1 h-screen min-h-screen">
+    <main class="flex-1 min-h-screen overflow-auto">
       <div class="p-4">
         <slot />
       </div>
