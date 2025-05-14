@@ -1,3 +1,16 @@
+function getActiveTheme() {
+  if (process.client) {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      return "dark";
+    } else {
+      return "light";
+    }
+  }
+}
+
 function setThemeOnLoad() {
   if (process.client) {
     if (
@@ -26,4 +39,4 @@ function switchTheme() {
   }
 }
 
-export { setThemeOnLoad, switchTheme };
+export { setThemeOnLoad, switchTheme, getActiveTheme };
