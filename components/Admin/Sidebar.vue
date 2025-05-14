@@ -24,12 +24,8 @@
                     active="/admin/clients"
                     :sub_menu="[
                         {
-                            text: 'All',
-                            href: 'admin.clients.index',
-                        },
-                        {
-                            text: 'Create',
-                            href: 'admin.clients.create',
+                            text: 'Index',
+                            href: '/admin/clients',
                         },
                     ]"
                 />
