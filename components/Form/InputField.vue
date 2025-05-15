@@ -48,7 +48,7 @@ const input_type = computed(() => {
         :placeholder="placeholder"
         autocomplete="off"
         v-model="model"
-        class="bg-primary text-color dark:bg-dark-primary dark:text-dark-color placeholder:text-gray block w-full rounded-md text-sm border-slate-200 outline-0 focus:ring-1 focus:ring-inset focus:ring-indigo-400 focus:border-indigo-400"
+        class="h-[50px] bg-primary text-color dark:bg-dark-primary dark:text-dark-color placeholder:text-gray block w-full rounded-md text-sm border-slate-200 outline-0 focus:ring-1 focus:ring-inset focus:ring-indigo-400 focus:border-indigo-400"
         :class="{ 'pl-9 pr-3': icon }" />
       <i
         v-if="type === 'password'"

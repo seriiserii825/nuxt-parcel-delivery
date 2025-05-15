@@ -15,7 +15,7 @@ useHead({
     <div class="mobile-container">
       <NavHeader />
       <main
-        class="text-color bg-primary-light dark:bg-dark-primary-dark dark:text-dark-color min-h-[100vh] py-6">
+        class="text-color dark:text-dark-color min-h-[100vh] py-6">
         <slot />
       </main>
     </div>
