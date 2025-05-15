@@ -15,6 +15,7 @@
 
   --accent: #efb100; /*bg-yellow-500; */
   --error: #ef4444; /* bg-red-500; */
+  --gray: #64748b; /* bg-slate-500; */
 }
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
@@ -37,4 +38,7 @@ select:-webkit-autofill:focus {
 .mobile-container {
   margin: 0 auto;
   max-width: 576px;
+}
+body {
+  @apply text-color bg-primary-light dark:bg-dark-primary-dark dark:text-dark-color min-h-[100vh] text-sm py-6 px-2;
 }

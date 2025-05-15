@@ -6,7 +6,7 @@ const user_store = useUserStore();
 
 <template>
   <header>
-    <nav class="p-6 mx-auto max-w-screen-lg flex items-center justify-between gap-2">
+    <nav class="mx-auto max-w-screen-lg flex items-center justify-between gap-2">
       <Logo />
       <div class="flex items-center space-x-6 gap-2">
         <UiAuthDropdown v-if="user_store.user" />

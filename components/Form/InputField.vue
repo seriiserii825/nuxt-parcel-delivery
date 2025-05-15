@@ -1,58 +1,50 @@
 <script setup lang="ts">
 const model = defineModel();
 defineProps({
-    label: String,
-    icon: {
-        type: String,
-        default: "",
-    },
-    placeholder: {
-        type: String,
-        default: "",
-    },
-    type: {
-        type: String,
-        default: "text",
-    },
-    error: {
-        type: String,
-        default: "",
-    },
+  label: String,
+  icon: {
+    type: String,
+    default: "",
+  },
+  placeholder: {
+    type: String,
+    default: "",
+  },
+  type: {
+    type: String,
+    default: "text",
+  },
+  name: String,
+  error: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 
 <template>
-    <div>
-        <label
-            :for="label"
-            class="block dark:text-dark-color text-sm font-medium"
-        >
-            {{ label }}
-        </label>
+  <div>
+    <label :for="label" class="block dark:text-dark-color text-sm font-medium">
+      {{ label }}
+    </label>
 
-        <div class="relative mt-1 rounded-md">
-            <div
-                v-if="icon"
-                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
-            >
-                <span
-                    class="grid place-content-center text-sm dark:text-dark-color"
-                >
-                    <i :class="`fa-solid fa-${icon}`"></i>
-                </span>
-            </div>
-            <input
-                :type="type"
-                :name="label"
-                :placeholder="placeholder"
-                autocomplete="off"
-                v-model="model"
-                class="bg-primary text-color dark:bg-dark-primary dark:text-dark-color placeholder:text-red-500 block w-full rounded-md text-sm border-slate-300 outline-0 focus:ring-1 focus:ring-inset focus:ring-indigo-400 focus:border-indigo-400"
-                :class="{'pl-9 pr-3': icon}"
-            />
-        </div>
-        <p v-if="error" class="mt-2 text-sm text-red-600 dark:text-red-500">
-            {{ error }}
-        </p>
+    <div class="relative mt-1 rounded-md">
+      <div v-if="icon" class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+        <span class="grid place-content-center text-sm dark:text-dark-color">
+          <i :class="`fa-solid fa-${icon}`"></i>
+        </span>
+      </div>
+      <input
+        :type="type"
+        :name="name"
+        :placeholder="placeholder"
+        autocomplete="off"
+        v-model="model"
+        class="bg-primary text-color dark:bg-dark-primary dark:text-dark-color placeholder:text-gray block w-full rounded-md text-sm border-slate-200 outline-0 focus:ring-1 focus:ring-inset focus:ring-indigo-400 focus:border-indigo-400"
+        :class="{ 'pl-9 pr-3': icon }" />
     </div>
+    <p v-if="error" class="mt-2 text-sm text-red-600 dark:text-red-500">
+      {{ error }}
+    </p>
+  </div>
 </template>
