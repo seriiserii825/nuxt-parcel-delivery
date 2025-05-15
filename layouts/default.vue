@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { useHead } from "#imports";
-import {useUserStore} from "~/store/useUserStore";
+import { useUserStore } from "~/store/useUserStore";
 useHead({
-  link: [{ rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" }],
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+    },
+  ],
 });
 
 const user_store = useUserStore();
-
 </script>
 
 <template>
@@ -15,17 +19,20 @@ const user_store = useUserStore();
       <nav class="p-6 mx-auto max-w-screen-lg flex items-center justify-between gap-2">
         <Logo />
         <div class="flex items-center space-x-6 gap-2">
-          <UiAuthDropdown v-if="user_store.user"/>
+          <UiAuthDropdown v-if="user_store.user" />
           <div v-else class="flex gap-2">
             <FormBtn url="/login">Login</FormBtn>
             <FormBtn url="/register">Register</FormBtn>
           </div>
-          <UiThemeToggler/>
+          <UiThemeToggler />
         </div>
       </nav>
     </header>
-    <main class="text-color bg-primary-light dark:bg-dark-primary-dark dark:text-dark-color min-h-[100vh] p-6">
-      <slot />
+    <main
+      class="text-color bg-primary-light dark:bg-dark-primary-dark dark:text-dark-color min-h-[100vh] p-6">
+      <div class="container m-auto">
+        <slot />
+      </div>
     </main>
   </div>
 </template>

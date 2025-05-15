@@ -36,7 +36,7 @@ const toggleSubmenu = () => {
 const route = useRoute();
 </script>
 <template>
-  <div>
+  <div class="sidebar-link">
     <li
       class="relative px-6 py-3"
       :class="{
@@ -76,7 +76,7 @@ const route = useRoute();
   </div>
 </template>
 <style>
-.router-link-exact-active {
+.sidebar-link .router-link-exact-active {
   color: var(--accent);
 }
 </style>

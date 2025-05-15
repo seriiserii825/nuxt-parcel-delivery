@@ -35,6 +35,7 @@ export default {
         },
         color: "var(--color)",
         accent: "var(--accent)",
+        error: "var(--error)",
       },
     },
   },
