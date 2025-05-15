@@ -2,9 +2,10 @@
 import { useUserStore } from "~/store/useUserStore";
 
 const user_store = useUserStore();
+const { user } = storeToRefs(user_store);
 const image = ref("/images/profile-foto.jpg");
 
-function onChange(event: Event) {
+async function onChange(event: Event) {
   const target = event.target as HTMLInputElement;
   if (target.files && target.files.length > 0) {
     const file = target.files[0];
@@ -14,17 +15,37 @@ function onChange(event: Event) {
     };
     reader.readAsDataURL(file);
   }
+  const formData = new FormData();
+  formData.append("image", target.files[0]);
+  try {
+    await axiosInstance.post("/admin/upload-image", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    useSweetAlert("success", "Image uploaded successfully");
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    handleAxiosError(error);
+  }
 }
 
-onMounted(() => {
-  if (user_store.user && user_store.user.image) {
-    image.value = user_store.user.image;
-  }
-});
+watch(
+  () => user.value,
+  (newUser) => {
+    if (newUser) {
+      const config = useRuntimeConfig();
+      const baseUrl = config.public.apiBase;
+      const image_store = newUser.image;
+      image.value = `${baseUrl}/${image_store}`;
+    }
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
-  <div class="profile-info text-center pt-4" v-if="user_store.user">
+  <div class="profile-info pt-4 text-center" v-if="user_store.user">
     <div class="relative mb-4 w-[100px] h-[100px] mx-auto table">
       <img :src="image" alt="" class="absolute w-full h-full object-cover rounded-lg" />
       <div
