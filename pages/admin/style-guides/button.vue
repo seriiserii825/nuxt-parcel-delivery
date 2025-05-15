@@ -96,7 +96,7 @@ const btn_warning = `<FormBtn @emit_click="console.log('')" color="warning">Edit
 </script>
 
 <template>
-    <div class="flex">
+    <div class="flex dark:bg-dark-primary p-2">
         <StyleGuidePreviewCode :show_props="true">
             <template #default>
                 <div class="flex gap-2 flex-wrap">

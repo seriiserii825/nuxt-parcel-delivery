@@ -15,7 +15,7 @@ async function logOut() {
 </script>
 
 <template>
-  <header class="z-10 p-4 shadow-md dark:bg-dark-300">
+  <header class="z-10 p-4 shadow-md dark:bg-dark-primary">
     <div
       class="flex items-center justify-between gap-2 w-full h-full px-2 text-purple-600 dark:text-purple-300">
       <div class="px-4">

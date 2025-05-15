@@ -25,9 +25,10 @@ export default {
                 dark: {
                     primary: {
                         DEFAULT: "var(--dark-primary)",
-                        lighten: "var(--dark-primary-200)",
-                        light: "var(--dark-primary-300)",
-                        dark: "var(--dark-primary-700)",
+                        lighten: "var(--dark-primary-600)",
+                        light: "var(--dark-primary-700)",
+                        dark: "var(--dark-primary-900)",
+                        darken: "var(--dark-primary-950)",
                         hover: "var(--dark-primary-hover)",
                     },
                     color: "var(--dark-color)",
