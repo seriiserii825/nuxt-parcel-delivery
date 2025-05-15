@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 definePageMeta({
   middleware: ["admin"],
   layout: "admin",
@@ -7,6 +8,6 @@ definePageMeta({
 
 <template>
   <div class="admin">
-    <UiMap/>
+    <MapLocation/>
   </div>
 </template>
