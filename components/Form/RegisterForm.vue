@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useUserStore } from "~/store/useUserStore";
 const user_store = useUserStore();
+const loading = ref(false);
 const form = ref({
   name: "",
   email: "",
@@ -16,16 +17,20 @@ const errors = ref({
 });
 const router = useRouter();
 async function submit() {
+  loading.value = true;
   try {
     const response = await axiosInstance.post("/register", form.value);
-    console.log("response", response);
     localStorage.setItem("token", response.data.token);
     const cookie_user = useCookie("user");
     cookie_user.value = JSON.stringify(response.data.user);
     user_store.setUser(response.data.user);
-    router.push("/admin");
+    setTimeout(() => {
+      loading.value = false;
+      router.push("/admin");
+    }, 1000);
   } catch (error) {
     useHandleAxiosErrors(error);
+    loading.value = false;
   }
 }
 </script>
@@ -39,8 +44,18 @@ async function submit() {
       </p>
     </div>
     <form @submit.prevent="submit" class="space-y-6">
-      <FormInputField name="name" label="Name" icon="user" v-model="form.name" :error="errors.name" />
-      <FormInputField name="email" label="Email" icon="at" v-model="form.email" :error="errors.email" />
+      <FormInputField
+        name="name"
+        label="Name"
+        icon="user"
+        v-model="form.name"
+        :error="errors.name" />
+      <FormInputField
+        name="email"
+        label="Email"
+        icon="at"
+        v-model="form.email"
+        :error="errors.email" />
       <FormInputField
         label="Password"
         type="password"
@@ -55,7 +70,7 @@ async function submit() {
         name="password_confirmation"
         v-model="form.password_confirmation"
         :error="errors.password_confirmation" />
-      <FormBtn @click="submit" color="success">Register</FormBtn>
+      <FormBtn :loading="loading" @click="submit" color="success">Register</FormBtn>
     </form>
   </div>
 </template>

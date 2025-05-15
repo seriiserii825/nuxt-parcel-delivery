@@ -10,14 +10,12 @@ useHead({
 });
 </script>
 <template>
-  <div class="bg-gray-50 dark:text-dark-color">
-    <AdminHeader />
-    <div class="flex">
-      <AdminSidebar />
-      <main class="flex-1 min-h-screen overflow-auto dark:bg-dark-primary-dark">
-        <div class="p-4">
-          <slot />
-        </div>
+  <div>
+    <div class="mobile-container">
+      <NavHeader />
+      <main
+        class="text-color bg-primary-light dark:bg-dark-primary-dark dark:text-dark-color min-h-[100vh] py-6">
+        <slot />
       </main>
     </div>
   </div>
