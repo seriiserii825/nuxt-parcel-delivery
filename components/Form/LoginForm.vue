@@ -44,7 +44,7 @@ async function submit() {
       name="password"
       :error="errors.password" />
     <div class="flex justify-end">
-      <FormTextLink routeName="/" label="Forgot password?" />
+      <FormTextLink routeName="/forgot-password" label="Forgot password?" />
     </div>
     <FormBtn @click="submit" color="success">Login</FormBtn>
   </form>
