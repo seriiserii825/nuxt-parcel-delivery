@@ -12,13 +12,19 @@ const errors = ref({
   password_confirmation: "",
 });
 const router = useRouter();
+const loading = ref(false);
 async function submit() {
+  loading.value = true;
   try {
     await axiosInstance.post("/reset-password", form.value);
-    useSweetAlert('success', 'Success', 'Password reset successfully');
-    router.push("/login");
+    setTimeout(() => {
+      loading.value = false;
+      useSweetAlert("success", "Success", "Password reset successfully");
+      router.push("/login");
+    }, 1000);
   } catch (error) {
     useHandleAxiosErrors(error);
+    loading.value = false;
   }
 }
 
@@ -63,7 +69,8 @@ onMounted(() => {
         v-model="form.password_confirmation"
         name="password_confirmation"
         :error="errors.password_confirmation" />
-      <FormBtn @click="submit" color="success">Submit</FormBtn>
+      <UiLoader v-if="loading" />
+      <FormBtn v-else @click="submit" color="success">Submit</FormBtn>
     </form>
   </div>
 </template>

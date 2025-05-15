@@ -6,15 +6,19 @@ const form = ref({
 const errors = ref({
   email: "",
 });
+const loading = ref(false);
 function goBack() {
   router.back();
 }
-async function submit(){
+async function submit() {
+  loading.value = true;
   try {
     await axiosInstance.post("/forgot-password", form.value);
-    useSweetAlert('success', 'Success', 'Check your email for the reset link');
+    loading.value = false;
+    useSweetAlert("success", "Success", "Check your email for the reset link");
   } catch (error) {
     useHandleAxiosErrors(error);
+    loading.value = false;
   }
 }
 </script>
@@ -32,6 +36,7 @@ async function submit(){
       icon="at"
       v-model="form.email"
       :error="errors.email" />
-    <FormBtn class="mt-8" @click="submit" color="success">Reset link</FormBtn>
+    <UiLoader v-if="loading" />
+    <FormBtn v-else class="mt-8" @click="submit" color="success">Reset link</FormBtn>
   </div>
 </template>

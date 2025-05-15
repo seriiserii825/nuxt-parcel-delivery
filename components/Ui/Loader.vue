@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="loader py-6">
+  <div class="loader">
     <svg
       version="1.1"
       id="Layer_1"
@@ -14,7 +14,7 @@
       viewBox="0 0 24 30"
       style="enable-background: new 0 0 50 50"
       xml:space="preserve">
-      <rect x="0" y="10" width="4" height="10" fill="#888" opacity="0.2">
+      <rect x="0" y="10" width="4" height="10" fill="#fff" opacity="0.2">
         <animate
           attributeName="opacity"
           attributeType="XML"
@@ -37,7 +37,7 @@
           dur="0.6s"
           repeatCount="indefinite" />
       </rect>
-      <rect x="8" y="10" width="4" height="10" fill="#888" opacity="0.2">
+      <rect x="8" y="10" width="4" height="10" fill="#fff" opacity="0.2">
         <animate
           attributeName="opacity"
           attributeType="XML"
@@ -60,7 +60,7 @@
           dur="0.6s"
           repeatCount="indefinite" />
       </rect>
-      <rect x="16" y="10" width="4" height="10" fill="#888" opacity="0.2">
+      <rect x="16" y="10" width="4" height="10" fill="#fff" opacity="0.2">
         <animate
           attributeName="opacity"
           attributeType="XML"

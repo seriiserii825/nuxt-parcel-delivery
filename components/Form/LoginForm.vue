@@ -2,11 +2,6 @@
 import { useUserStore } from "~/store/useUserStore";
 const user_store = useUserStore();
 const loading = ref(false);
-function stopLoading() {
-  setTimeout(() => {
-    loading.value = false;
-  }, 2000);
-}
 const form = ref({
   email: "",
   password: "",
@@ -62,8 +57,7 @@ async function submit() {
       <div class="flex justify-end">
         <FormTextLink routeName="/forgot-password" label="Forgot password?" />
       </div>
-      <UiLoader v-if="loading" />
-      <FormBtn @click="submit" color="success">Login</FormBtn>
+      <FormBtn @click="submit" :loading="loading" color="success">Login</FormBtn>
     </form>
   </div>
 </template>

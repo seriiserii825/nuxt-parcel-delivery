@@ -15,6 +15,10 @@ const props = defineProps({
     default: false,
   },
   full: Boolean,
+  loading: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits(["emit_click"]);
@@ -67,9 +71,10 @@ onMounted(() => {
   <button
     v-else
     type="button"
-    class="px-8 py-2 rounded-lg"
+    class="flex gap-2 items-center px-8 py-2 rounded-lg"
     :class="`${class_name} text-white`"
     @click="handleClick">
+    <UiLoader v-if="loading" />
     <slot />
   </button>
 </template>
