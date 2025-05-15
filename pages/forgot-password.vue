@@ -36,7 +36,6 @@ async function submit() {
       icon="at"
       v-model="form.email"
       :error="errors.email" />
-    <UiLoader v-if="loading" />
-    <FormBtn v-else class="mt-8" @click="submit" color="success">Reset link</FormBtn>
+    <FormBtn :loading="loading" class="mt-8" @click="submit" color="success">Reset link</FormBtn>
   </div>
 </template>

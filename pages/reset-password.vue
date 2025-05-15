@@ -69,8 +69,7 @@ onMounted(() => {
         v-model="form.password_confirmation"
         name="password_confirmation"
         :error="errors.password_confirmation" />
-      <UiLoader v-if="loading" />
-      <FormBtn v-else @click="submit" color="success">Submit</FormBtn>
+      <FormBtn :loading="loading" @click="submit" color="success">Submit</FormBtn>
     </form>
   </div>
 </template>
