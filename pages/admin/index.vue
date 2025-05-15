@@ -6,5 +6,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="admin">admin</div>
+  <div class="admin">
+    <UiMap/>
+  </div>
 </template>
