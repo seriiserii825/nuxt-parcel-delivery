@@ -1,4 +1,4 @@
-import {useUserStore} from "~/store/useUserStore";
+import { useUserStore } from "~/store/useUserStore";
 
 export default async function useGetUserApi() {
   const user_store = useUserStore();
@@ -13,6 +13,7 @@ export default async function useGetUserApi() {
     if (error.status === 401) {
       const user_cookie = useCookie("user");
       user_cookie.value = null;
+      user_store.setUser(null);
     }
   }
 }
