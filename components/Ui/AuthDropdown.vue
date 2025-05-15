@@ -5,9 +5,9 @@ const user_store = useUserStore();
 const router = useRouter();
 const show = ref(false);
 
-function goToAdmin() {
+function goTo(url: string) {
   show.value = false;
-  router.push("/admin");
+  router.push(url);
 }
 
 async function logOut() {
@@ -44,7 +44,10 @@ async function logOut() {
     <div
       v-show="show"
       class="absolute top-[50px] right-0 bg-primary dark:bg-dark-primary w-[150px] shadow-md p-4 rounded-md flex flex-col gap-2 transition">
-      <NuxtLink @click.prevent="goToAdmin" class="flex gap-2 items-center  hover:text-accent" to="/admin">
+      <NuxtLink @click.prevent="goTo('/admin/profile')" class="flex gap-2 items-center  hover:text-accent" to="/admin/profile">
+        <span>Profile</span>
+      </NuxtLink>
+      <NuxtLink @click.prevent="goTo('/admin')" class="flex gap-2 items-center  hover:text-accent" to="/admin">
         <span>Dashboard</span>
       </NuxtLink>
       <NuxtLink @click.prevent="logOut" class="text-error" to="/">Logout</NuxtLink>

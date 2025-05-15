@@ -14,6 +14,8 @@ export default async function useGetUserApi() {
       const user_cookie = useCookie("user");
       user_cookie.value = null;
       user_store.setUser(null);
+      const router = useRouter();
+      router.push("/login");
     }
   }
 }
