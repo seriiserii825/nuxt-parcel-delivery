@@ -5,13 +5,15 @@
   --primary-hover: #cad5e2; /* text-slate-300 */
   --color: #1e293b; /* bg-slate-800 */
 
-  --dark-primary:  #1d293d; /* bg-slate-800 */
-  --dark-primary-700:   #314158; /* bg-slate-700 */
-  --dark-primary-800:  #1d293d; /* bg-slate-800 */
+  --dark-primary: #1d293d; /* bg-slate-800 */
+  --dark-primary-700: #314158; /* bg-slate-700 */
+  --dark-primary-800: #1d293d; /* bg-slate-800 */
   --dark-primary-900: #0f172b; /* bg-slate-900 */
-  --dark-primary-950:  #020618; /* bg-slate-950 */
+  --dark-primary-950: #020618; /* bg-slate-950 */
   --dark-primary-hover: #1d293d; /* bg-slate-800 */
   --dark-color: #f1f5f9; /* text-slate-100 */
+
+  --accent: #efb100; /*bg-yellow-500; */
 }
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,

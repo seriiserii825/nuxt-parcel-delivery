@@ -75,3 +75,8 @@ const route = useRoute();
     </ul>
   </div>
 </template>
+<style>
+.router-link-exact-active {
+  color: var(--accent);
+}
+</style>
